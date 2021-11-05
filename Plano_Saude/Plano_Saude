@@ -1,0 +1,25 @@
+create database letscode_plano_saude
+
+create table cliente(
+	id int primary key, 
+	nome varchar(100),
+	data_nascimento varchar(100),
+	email varchar(100)
+)
+
+create table produto(
+	id int primary key,
+	codigo_ANS varchar(6),
+	descricao varchar(100),
+	valor money
+)
+
+create table contrato(
+	id int primary key,
+	cliente_id int references cliente(id),
+	data_inicio varchar(100),
+	produto_associado int references produto(id)
+)
+
+insert into cliente(id, nome, data_nascimento, email) values(1, 'Lucas Guerrero', '05/04/2001', 'guerrerowifi@gmail.com')
+select id, nome, data_nascimento, email from cliente
